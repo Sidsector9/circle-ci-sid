@@ -9,6 +9,13 @@ jobs:
       - setup_remote_docker:
           version: 20.10.14
       - checkout
+
+      - run:
+          name: Install Git 2.25
+          command: |
+            sudo apt-get update
+            sudo apt install git-all
+            git --version
       - run:
           name: Install Dependencies
           command: npm install  # Install project dependencies (adjust as needed)
