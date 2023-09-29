@@ -6,6 +6,8 @@ jobs:
       - image: circleci/node:16  # Use the CircleCI Node.js 16 image
 
     steps:
+      - setup_remote_docker:
+          version: 20.10.14
       - checkout
       - run:
           name: Install Dependencies
@@ -17,7 +19,7 @@ jobs:
 
       - run:
           name: Set the core version
-          command: ./tests/bin/set-core-version.js --core=6.3.1
+          command: ./tests/bin/set-core-version.js 6.3.1
 
       - run:
           name: Start wp-env
