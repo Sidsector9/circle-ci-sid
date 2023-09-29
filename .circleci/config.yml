@@ -17,7 +17,7 @@ jobs:
 
       - run:
           name: Set the core version
-          command: ./tests/bin/set-wp-config.js --core=6.3.1
+          command: ./tests/bin/set-core-version.js --core=6.3.1
 
       - run:
           name: Start wp-env
