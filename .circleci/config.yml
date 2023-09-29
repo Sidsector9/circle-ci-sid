@@ -12,6 +12,8 @@ jobs:
     steps:
       - checkout
       - docker/install-docker-tools
+      - run: docker-compose -v
+      - run: pwd && ls -al
       - node/install:
           node-version: '16.13'
       - run: node --version
