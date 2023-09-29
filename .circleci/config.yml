@@ -9,6 +9,7 @@ jobs:
     machine:
       image: ubuntu-2204:2023.07.2
     steps:
+      - checkout
       - node/install:
           node-version: '16.13'
       - run: node --version
