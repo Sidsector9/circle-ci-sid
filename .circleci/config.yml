@@ -12,6 +12,10 @@ jobs:
           command: npm install  # Install project dependencies (adjust as needed)
 
       - run:
+          name: Log directory
+          command: ls -la
+
+      - run:
           name: Set the core version
           command: ./tests/bin/set-wp-config.js --core=6.3.1
 
