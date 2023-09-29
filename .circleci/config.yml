@@ -1,43 +1,22 @@
 version: 2.1
 
+orbs:
+  node: circleci/node@5.1.0  # Use the CircleCI Node.js orb
+  php: circleci/php@1.1.0  # Use the CircleCI PHP orb
+
 jobs:
   build:
-    docker:
-      - image: circleci/node:16  # Use the CircleCI Node.js 16 image
-
+    machine:
+      image: ubuntu-2204:2023.07.2
     steps:
-      - setup_remote_docker:
-          version: 20.10.14
-      - checkout
-
-      - run:
-          name: Install Git 2.25
-          command: |
-            sudo apt-get update
-            sudo apt install git-all
-            git --version
-      - run:
-          name: Install Dependencies
-          command: npm install  # Install project dependencies (adjust as needed)
-
-      - run:
-          name: Log directory
-          command: ls -la
-
-      - run:
-          name: Set the core version
-          command: ./tests/bin/set-core-version.js 6.3.1
-
-      - run:
-          name: Start wp-env
-          command: npm run env:start
-
-      - run:
-          name: Run E2E tests
-          command: npm run cypress:run
+      - node/install:
+          node-version: '16.13'
+      - run: node --version
+      - php/install-php:
+          version: '7.3'
+      - run: php --version
 
 workflows:
-  version: 2
-  build:
+  install:
     jobs:
       - build
