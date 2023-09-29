@@ -1,0 +1,29 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:16  # Use the CircleCI Node.js 16 image
+
+    steps:
+      - run:
+          name: Install Dependencies
+          command: npm install  # Install project dependencies (adjust as needed)
+
+      - run:
+          name: Set the core version
+          command: ./tests/bin/set-wp-config.js --core=6.3.1
+
+      - run:
+          name: Start wp-env
+          command: npm run env:start
+
+      - run:
+          name: Run E2E tests
+          command: npm run cypress:run
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build

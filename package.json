@@ -1,0 +1,26 @@
+{
+  "name": "circle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open --config-file tests/cypress/config.js --e2e --browser chrome",
+    "cypress:run": "cypress run --config-file tests/cypress/config.js",
+    "env": "wp-env",
+    "env:start": "wp-env start",
+    "env:stop": "wp-env stop",
+    "env:destroy": "wp-env destroy",
+    "postenv:start": "./tests/bin/initialize.sh"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@10up/cypress-wp-setup": "file:cypress-wp-setup"
+  },
+  "devDependencies": {
+    "@10up/cypress-wp-utils": "^0.2.0",
+    "@wordpress/env": "^8.8.0",
+    "cypress": "^13.3.0"
+  }
+}

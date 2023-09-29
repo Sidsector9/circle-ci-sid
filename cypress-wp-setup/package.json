@@ -1,0 +1,16 @@
+{
+  "name": "@10up/cypress-wp-setup",
+  "version": "0.1.0",
+  "description": "Set up Cypress tests for WordPress",
+  "main": "index.js",
+  "author": "10up <opensource@10up.com>",
+  "license": "MIT",
+  "bin": {
+    "cypress-wp-setup": "./index.js"
+  },
+  "dependencies": {
+    "ansi-regex": "^6.0.1",
+    "fs-extra": "^11.1.0",
+    "npm-add-script": "^1.1.0"
+  }
+}
