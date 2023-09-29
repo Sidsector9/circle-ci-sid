@@ -22,6 +22,7 @@ jobs:
       - run: php --version
       - run: git --version
       - run: npm i
+      - run: ./tests/bin/set-core-version.js 6.3.1
       - run: npm run env:start
       - run: npm run cypress:run
 
